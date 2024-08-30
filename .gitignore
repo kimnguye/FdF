@@ -1,0 +1,8 @@
+*.pdf
+*test*
+*copy*
+*README*
+*.a
+*.o
+fdf
+*.png
