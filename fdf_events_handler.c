@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:29:23 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 22:04:56 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 23:11:59 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	key_hook(int key, t_mlx *param)
 		ft_above_view(param);
 	else if ((key >= LEFT && key <= BOTTOM) || (key >= NUM_7 && key <= NUM_1))
 	{
-		ft_zoom_handler(key, param);
+		ft_translation_handler(key, param);
 		code_calc = ft_rot_handler(key, param);
 		if (key == NUM_8)
 			param->altitude *= ZOOM_PLUS;
@@ -84,14 +84,19 @@ int	ft_rot_handler(int key, t_mlx *param)
 	return (ROT_CODE);
 }
 
-void	ft_zoom_handler(int key, t_mlx *param)
+void	ft_translation_handler(int key, t_mlx *param)
 {
+	int	speed;
+
+	speed = 1;
+	if (param->zoom >= ZOOM_INIT * 3)
+		speed = 2;
 	if (key == LEFT)
-		param->trans_x -= TRANS * param->zoom;
+		param->trans_x -= TRANS * speed;
 	else if (key == RIGHT)
-		param->trans_x += TRANS * param->zoom;
+		param->trans_x += TRANS * speed;
 	else if (key == BOTTOM)
-		param->trans_y += TRANS * param->zoom;
+		param->trans_y += TRANS * speed;
 	else if (key == TOP)
-		param->trans_y -= TRANS * param->zoom;
+		param->trans_y -= TRANS * speed;
 }

@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:43:55 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 23:02:49 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 23:08:56 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		isin_img(int x, int y);
 //events handler
 int		key_hook(int key, t_mlx *param);
 int		mouse_hook(int button, int x, int y, t_mlx *param);
-void	ft_zoom_handler(int key, t_mlx *param);
+void	ft_translation_handler(int key, t_mlx *param);
 int		ft_rot_handler(int key, t_mlx *param);
 
 //fdf utils
