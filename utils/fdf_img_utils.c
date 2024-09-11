@@ -6,11 +6,22 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:31:44 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/30 18:22:10 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:03:01 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
+
+int		isin_img(int x, int y);
+
+/*returns 1 if it is inside the img
+returns 0 if it is outside the img*/
+int		isin_img(int x, int y)
+{
+	if (x >= 0 && x <= WIDTH && y >= 0 && y <= HEIGHT)
+		return (1);
+	return (0);
+}
 
 /*put pixel to img*/
 void	ft_put_pixel_to_img(t_mlx *vars, int x, int y, int color)
@@ -30,7 +41,7 @@ int	ft_color(t_map *maps, int a, int b, t_slope *ab)
 	int		color_b;
 	double	frac;
 
-	frac = ft_dist_percent(a, b, ab);
+	frac = ft_dist_percent(maps, a, b, ab);
 	color_r = frac * ((maps->color[b] >> 16) & 0xFF)
 		+ (1 - frac) * ((maps->color[a] >> 16) & 0xFF);
 	color_g = frac * ((maps->color[b] >> 8) & 0xFF)

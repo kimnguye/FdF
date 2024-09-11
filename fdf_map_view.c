@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:39 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/30 17:43:19 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:42:53 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ t_point	*ft_extrem_values(t_map *maps, t_mlx *vars);
 void	ft_initial_view(t_mlx *param)
 {
 	ft_init_param_view(param);
-	ft_zoom(param->map, param->res, param, param->zoom);
-	ft_iso(param->res, ANGLE_INIT, param);
-	ft_center(param->res, param);
-	ft_trans(param->res, param);
-	ft_draw_map(param->res, param);
+	ft_transfo(param->map, param->res, param);
+	ft_center_and_trans(param->res, param);
+	ft_draw_map(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	ft_printf("zoom:%i%%; rot iso:%i°; map center (%i, %i);\n",
 		(int)((param->zoom / ZOOM_INIT) * 100),
@@ -33,16 +31,13 @@ void	ft_iso_view(t_mlx *param)
 {
 	ft_black_map(param);
 	ft_copy_map(param->map, param->res, param);
-	ft_zoom(param->map, param->res, param, param->zoom);
 	param->rot_iso = ANGLE_INIT;
 	param->rot_x = 0;
 	param->rot_y = 0;
 	param->rot_z = 0;
-	ft_iso(param->res, param->rot_iso, param);
-	ft_center(param->res, param);
-	ft_trans(param->res, param);
-	ft_rotate(param->res, param);
-	ft_draw_map(param->res, param);
+	ft_transfo(param->map, param->res, param);
+	ft_center_and_trans(param->res, param);
+	ft_draw_map(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	ft_printf("zoom:%i%%; rot iso:%i°; map center (%i, %i);",
 		(int)((param->zoom / ZOOM_INIT) * 100),
@@ -57,9 +52,8 @@ void	ft_above_view(t_mlx *param)
 	ft_black_map(param);
 	ft_copy_map(param->map, param->res, param);
 	ft_zoom(param->map, param->res, param, param->zoom);
-	ft_center(param->res, param);
-	ft_trans(param->res, param);
-	ft_draw_map(param->res, param);
+	ft_center_and_trans(param->res, param);
+	ft_draw_map(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	ft_printf("zoom:%i%%; rot iso:%i°; map center (%i, %i);",
 		(int)((param->zoom / ZOOM_INIT) * 100),
@@ -74,14 +68,11 @@ void	ft_calc_view(t_mlx *param, int code)
 {
 	ft_black_map(param);
 	ft_copy_map(param->map, param->res, param);
-	ft_zoom(param->map, param->res, param, param->zoom);
-	ft_altitude(param->res, param);
-	ft_iso(param->res, param->rot_iso, param);
-	ft_center(param->res, param);
+	ft_transfo(param->map, param->res, param);
 	if (code != ROT_CODE)
-		ft_trans(param->res, param);
+		ft_center_and_trans(param->res, param);
 	ft_rotate(param->res, param);
-	ft_draw_map(param->res, param);
+	ft_draw_map(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	ft_printf("zoom:%i%%; rot iso:%i°; map center (%i, %i);\n",
 		(int)((param->zoom / ZOOM_INIT) * 100),

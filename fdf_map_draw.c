@@ -6,58 +6,60 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 20:10:22 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/30 18:17:32 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:29:40 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_draw_map(t_map *maps, t_mlx *vars);
+void	ft_draw_map(t_mlx *vars);
 
-// void	ft_draw_line(int x, int y, t_mlx *param)
-// {
-// 	static t_point	*point_a;
-// 	t_point			*point_b;
+void	ft_draw_line(int x, int y, t_mlx *param)
+{
+	static int a[4];
+	int			b[3];
 
-// 	if (point_a)
-// 	{
-// 		point_b = ft_point_new(x, y, 0, GREEN);
-// 		ft_printf("A(%i; %i), B(%i, %i)",
-// 			point_a->x, point_a->y, point_b->x, point_b->y);
-// 		ft_segment(maps, point_a, point_b, param);
-// 		free(point_a);
-// 		point_a = NULL;
-// 		free(point_b);
-// 	}
-// 	else
-// 	{
-// 		point_a = ft_point_new(x, y, 0, BLUE);
-// 		ft_put_pixel_to_img(param, x, y, point_a->color);
-// 	}
-// 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
-// }
+	if (a[3])
+	{
+		b[0] = x;
+		b[1] = y;
+		b[2] = BLUE;
+		ft_printf("A(%i; %i), B(%i, %i)", a[0], a[1], x, y);
+		// ft_segment(a, b, param);
+		a[3] = 0;
+	}
+	else
+	{
+		a[0] = x;
+		a[1] = y;
+		a[2] = BLUE;
+		a[3] = 1;
+		ft_put_pixel_to_img(param, x, y, a[2]);
+	}
+	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
+}
 
 /*trace the segment between two given points a(x,y,z) and b(x',y',z') */
-void	ft_segment(t_map *maps, int a, int b, t_mlx *vars)
+void	ft_segment(int a, int b, t_mlx *vars)
 {
 	t_slope	*ab;
 
 	ab = malloc(sizeof(t_slope));
-	ab->dx = (maps->x[b] - maps->x[a]);
-	ab->dy = (maps->y[b] - maps->y[a]);
-	ab->i = maps->x[a];
-	ab->j = maps->y[a];
+	ab->dx = (vars->res->x[b] - vars->res->x[a]);
+	ab->dy = (vars->res->y[b] - vars->res->y[a]);
+	ab->i = vars->res->x[a];
+	ab->j = vars->res->y[a];
 	ab->p = 0;
 	if (ab->dx == 0)
-		ft_segment_vertical (maps, a, b, vars, ab);
+		ft_segment_vertical (a, b, vars, ab);
 	else if (ab->dy >= 0 && ab->dx > 0)
-		ft_segment_q1(maps, a, b, vars, ab);
+		ft_segment_q1(a, b, vars, ab);
 	else if (ab->dy >= 0 && ab->dx < 0)
-		ft_segment_q2(maps, a, b, vars, ab);
+		ft_segment_q2(a, b, vars, ab);
 	else if (ab->dy < 0 && ab->dx < 0)
-		ft_segment_q3(maps, a, b, vars, ab);
+		ft_segment_q3(a, b, vars, ab);
 	else if (ab->dy < 0 && ab->dx > 0)
-		ft_segment_q4(maps, a, b, vars, ab);
+		ft_segment_q4(a, b, vars, ab);
 	free(ab);
 }
 
@@ -72,12 +74,12 @@ void	ft_black_map(t_mlx *vars)
 		vars->res->color[i] = BLACK;
 		i++;
 	}
-	ft_draw_map(vars->res, vars);
+	ft_draw_map(vars);
 }
 
 /*draw the map in the img
 assuming the map is a rectangle*/
-void	ft_draw_map(t_map *maps, t_mlx *vars)
+void	ft_draw_map(t_mlx *vars)
 {
 	int	i;
 
@@ -86,17 +88,16 @@ void	ft_draw_map(t_map *maps, t_mlx *vars)
 	{
 		while (i % vars->max_x < vars->max_x - 1)
 		{
-			ft_segment(maps, i, i + 1, vars);
-			ft_segment(maps, i, i + vars->max_x, vars);
+			ft_segment(i, i + 1, vars);
+			ft_segment(i, i + vars->max_x, vars);
 			i++;
 		}
-		ft_segment(maps, i, i + vars->max_x, vars);
+		ft_segment(i, i + vars->max_x, vars);
 		i++;
 	}
-	i = 0;
-	while (i < vars->max_x - 1)
+	while (i < vars->max - 1)
 	{
-		ft_segment(maps, i, i + 1, vars);
+		ft_segment(i, i + 1, vars);
 		i++;
 	}
 }

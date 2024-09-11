@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:51:58 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/30 10:25:09 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:33:40 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int	ft_fdf_errors(int argc, char **argv)
 int	ft_close(t_mlx *param, unsigned int code)
 {
 	if (code >= 5)
-		ft_free_map(param->res, param);
+		ft_free_map(param->res);
 	if (code >= 4)
-		ft_free_map(param->map, param);
+		ft_free_map(param->map);
 	if (code >= 3)
 		mlx_destroy_image(param->mlx, param->img_hi);
 	if (code >= 2)

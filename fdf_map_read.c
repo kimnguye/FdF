@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:33:20 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/30 17:51:36 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:01:26 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_save_map(int fd, t_mlx *vars)
 		while (++i < vars->max_x)
 		{
 			vars->map->x[i + j] = i;
-			vars->map->y[i + j] = j % vars->max_x;
+			vars->map->y[i + j] = j / vars->max_x;
 			ft_save_point(data[i], vars, i, j);
 		}
 		free(line);

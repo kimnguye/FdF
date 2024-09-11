@@ -3,7 +3,7 @@ FDF = fdf
 UTILS = fdf_point_utils.c fdf_map_utils.c fdf_calc_utils.c fdf_img_utils.c
 
 SRCS = fdf_map_read.c fdf_map_view.c fdf_map_draw.c\
-		fdf_transfo.c fdf_transfo_rotation.c \
+		fdf_transfo_all.c fdf_transfo_rotation.c \
 		fdf_events_handler.c fdf_launch.c \
 		fdf_bresenham.c fdf_utils.c $(UTILS:%=utils/%)
 

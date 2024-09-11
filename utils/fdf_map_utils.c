@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:12:46 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/30 17:03:35 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:37:04 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_copy_map(t_map *map, t_map *res, t_mlx *vars);
 t_map	*ft_dup_map(t_map *map, t_mlx *vars);
-void	ft_free_map(t_map *map, t_mlx *vars);
+void	ft_free_map(t_map *map);
 t_map	*ft_malloc_map(t_mlx *vars);
 
 /*copy the values of map into res*/
@@ -59,7 +59,7 @@ t_map	*ft_dup_map(t_map *map, t_mlx *vars)
 }
 
 /*free map*/
-void	ft_free_map(t_map *map, t_mlx *vars)
+void	ft_free_map(t_map *map)
 {
 	free(map->x);
 	free(map->y);

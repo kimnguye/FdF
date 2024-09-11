@@ -6,41 +6,40 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:28:48 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/27 09:43:58 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:41:23 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
 double	ft_dist(int x1, int y1, int x2, int y2);
-double	ft_dist_percent(t_point *a, t_point *b, t_slope *ab);
-void	ft_move_to_0(t_point *a, t_mlx *vars);
-void	ft_move_to_center(t_point *a, t_mlx *vars);
+double	ft_dist_percent(t_map *maps, int a, int b, t_slope *ab);
 float	de_to_rad(int de);
+void	ft_move_to_0(int x, int y, t_mlx *vars);
+void	ft_move_to_center(int x, int y, t_mlx *vars);
 
+void	ft_move_to_0(int x, int y, t_mlx *vars)
+{
+	x -= vars->center_x;
+	y -= vars->center_y;
+}
+
+void	ft_move_to_center(int x, int y, t_mlx *vars)
+{
+	x += vars->center_x;
+	y += vars->center_y;
+}
 /*returns dist runs / dist total*/
-double	ft_dist_percent(t_point *a, t_point *b, t_slope *ab)
+double	ft_dist_percent(t_map *maps, int a, int b, t_slope *ab)
 {
 	double	dist_total;
 	double	dist_a;
 	double	dist_percent;
 
-	dist_total = ft_dist(a->x, a->y, b->x, b->y);
-	dist_a = ft_dist(a->x, a->y, ab->i, ab->j);
+	dist_total = ft_dist(maps->x[a], maps->y[a], maps->x[b], maps->y[b]);
+	dist_a = ft_dist(maps->x[a], maps->y[a], ab->i, ab->j);
 	dist_percent = dist_a / dist_total;
 	return (dist_percent);
-}
-
-void	ft_move_to_0(t_point *a, t_mlx *vars)
-{
-	a->x -= vars->center_x;
-	a->y -= vars->center_y;
-}
-
-void	ft_move_to_center(t_point *a, t_mlx *vars)
-{
-	a->x += vars->center_x;
-	a->y += vars->center_y;
 }
 
 /*converts degrees into radians*/

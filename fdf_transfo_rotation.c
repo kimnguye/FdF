@@ -6,63 +6,46 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:23:36 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/28 16:58:00 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:46:47 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_rotate(t_point ***res, t_mlx *vars)
-{
-	int	i;
-	int	j;
+// void	rotate_x(int y, int z, t_mlx *vars);
+// void	rotate_y(int x, int z, t_mlx *vars);
+// void	rotate_z(int x, int y, t_mlx *vars);
 
-	j = 0;
-	while (j < vars->max_y)
+
+// rotate_x(res->y[i], res->z[i], vars);
+// rotate_y(res->x[i], res->z[i], vars);
+// rotate_z(res->x[i], res->y[i], vars);
+/*rotate x (step 0), y (step 1) and z (step 2)*/
+void	ft_rotate(t_map *res, t_mlx *vars)
+{
+	int		i;
+	int		tmp[3];
+	float	rad[3];
+
+	rad[0] = de_to_rad(vars->rot_x);
+	rad[1] = de_to_rad(vars->rot_y);
+	rad[2] = de_to_rad(vars->rot_z);
+	i = 0;
+	while (i < vars->max)
 	{
-		i = 0;
-		while (i < vars->max_x)
-		{
-			ft_move_to_0(res[j][i], vars);
-			rotate_x(res[j][i], vars);
-			rotate_y(res[j][i], vars);
-			rotate_z(res[j][i], vars);
-			ft_move_to_center(res[j][i], vars);
-			i++;
-		}
-		j++;
+		//ft_move_to_0(res->x[i], res->y[i], vars);
+		// tmp[0] = res->y[i];
+		// res->y[i] = tmp[0] * cos(rad[0]) - res->z[i] * sin(rad[0]);
+		// res->z[i] = tmp[0] * sin(rad[0]) + res->z[i] * cos(rad[0]);
+		// tmp[1] = res->x[i];
+		// res->x[i] = tmp[1] * cos(rad[1]) + res->z[i] * sin(rad[1]);
+		// res->z[i] = res->z[i] * cos(rad[1]) - tmp[1] * sin(rad[1]);
+		tmp[2] = res->x[i];
+		res->x[i] = tmp[2] * cos(rad[2]) - res->y[i] * sin(rad[2]);
+		res->y[i] = tmp[2] * sin(rad[2]) + res->y[i] * cos(rad[2]);
+		ft_printf("x = %i, y = %i\n");
+		ft_move_to_center(res->x[i], res->y[i], vars);
+		ft_printf("x = %i, y = %i\n");
+		i++;
 	}
-}
-
-void	rotate_z(t_point *a, t_mlx *vars)
-{
-	int		tmp;
-	float	rad;
-
-	rad = de_to_rad(vars->rot_z);
-	tmp = a->x;
-	a->x = tmp * cos(rad) - a->y * sin(rad);
-	a->y = tmp * sin(rad) + a->y * cos(rad);
-}
-
-void	rotate_y(t_point *a, t_mlx *vars)
-{
-	int		tmp;
-	float	rad;
-
-	rad = de_to_rad(vars->rot_y);
-	tmp = a->x;
-	a->x = tmp * cos(rad) + a->z * sin(rad);
-	a->z = a->z * cos(rad) - tmp * sin(rad);
-}
-
-void	rotate_x(t_point *a, t_mlx *vars)
-{
-	int		tmp;
-	float	rad;
-
-	rad = de_to_rad(vars->rot_x);
-	tmp = a->y;
-	a->y = tmp * cos(rad) - a->z * sin(rad);
-	a->z = tmp * sin(rad) + a->z * cos(rad);
 }

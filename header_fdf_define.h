@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:41:12 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/30 10:29:26 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:05:08 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 //CAMERA
 # define ANGLE_INIT 30
 # define ANGLE_ROT 5
-# define ZOOM_INIT 2.00
+# define ZOOM_INIT 5.00
 # define ZOOM_PLUS 1.10
 # define ZOOM_MINUS 0.95
 # define TRANS 5
