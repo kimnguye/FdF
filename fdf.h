@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:43:55 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 23:59:27 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:12:51 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	rotate_z(t_point *a, t_mlx *vars);
 
 // drawing
 void	ft_draw_map(t_mlx *vars);
-int		ft_color(t_map *maps, int a, int b, t_slope *ab);
+int		ft_color(t_mlx *vars, int a, int b, t_slope *ab);
 void	ft_draw_line(int x, int y, t_mlx *param);
 void	ft_black_map(t_mlx *vars);
 

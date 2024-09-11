@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:31:44 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 16:03:01 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:11:57 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ void	ft_put_pixel_to_img(t_mlx *vars, int x, int y, int color)
 	vars->img_data[pixel + 2] = (color >> 16) & 0xFF;
 }
 
-int	ft_color(t_map *maps, int a, int b, t_slope *ab)
+int	ft_color(t_mlx *vars, int a, int b, t_slope *ab)
 {
 	int		color_r;
 	int		color_g;
 	int		color_b;
 	double	frac;
 
-	frac = ft_dist_percent(maps, a, b, ab);
-	color_r = frac * ((maps->color[b] >> 16) & 0xFF)
-		+ (1 - frac) * ((maps->color[a] >> 16) & 0xFF);
-	color_g = frac * ((maps->color[b] >> 8) & 0xFF)
-		+ (1 - frac) * ((maps->color[a] >> 8) & 0xFF);
-	color_b = frac * (maps->color[b] & 0xFF) + (1 - frac) * (maps->color[a] & 0xFF);
+	frac = ft_dist_percent(vars->res, a, b, ab);
+	color_r = frac * ((vars->res->color[b] >> 16) & 0xFF)
+		+ (1 - frac) * ((vars->res->color[a] >> 16) & 0xFF);
+	color_g = frac * ((vars->res->color[b] >> 8) & 0xFF)
+		+ (1 - frac) * ((vars->res->color[a] >> 8) & 0xFF);
+	color_b = frac * (vars->res->color[b] & 0xFF) + (1 - frac) * (vars->res->color[a] & 0xFF);
 	return ((color_r << 16) | (color_g << 8) | color_b);
 }
