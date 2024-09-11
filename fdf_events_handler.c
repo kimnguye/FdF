@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:29:23 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 16:14:32 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 22:04:56 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	mouse_hook(int button, int x, int y, t_mlx *param)
 			param->rot_iso -= ANGLE_ROT;
 		else
 			param->rot_iso += ANGLE_ROT;
-		ft_calc_view(param, ROT_CODE);
+		ft_calc_view(param, 0);
 	}
 	return (0);
 }

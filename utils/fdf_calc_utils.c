@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:28:48 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 17:41:23 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 22:08:42 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 double	ft_dist(int x1, int y1, int x2, int y2);
 double	ft_dist_percent(t_map *maps, int a, int b, t_slope *ab);
 float	de_to_rad(int de);
-void	ft_move_to_0(int x, int y, t_mlx *vars);
-void	ft_move_to_center(int x, int y, t_mlx *vars);
+void	ft_move_to_0(int *x, int *y, t_mlx *vars);
+void	ft_move_to_center(int *x, int *y, t_mlx *vars);
 
-void	ft_move_to_0(int x, int y, t_mlx *vars)
+void	ft_move_to_0(int *x, int *y, t_mlx *vars)
 {
-	x -= vars->center_x;
-	y -= vars->center_y;
+	*x -= vars->center_x;
+	*y -= vars->center_y;
 }
 
-void	ft_move_to_center(int x, int y, t_mlx *vars)
+void	ft_move_to_center(int *x, int *y, t_mlx *vars)
 {
-	x += vars->center_x;
-	y += vars->center_y;
+	*x += vars->center_x;
+	*y += vars->center_y;
 }
 /*returns dist runs / dist total*/
 double	ft_dist_percent(t_map *maps, int a, int b, t_slope *ab)

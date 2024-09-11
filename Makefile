@@ -32,7 +32,7 @@ $(LIBFT):
 	@cp libft/$(LIBFT) .
 
 $(FDF): $(FDF).c $(SRCS) $(LIBFT)
-	$(CC) -o $(FDF) $(FDF).c $(SRCS) $(LIBFT) $(FLAG42) -lm
+	$(CC) -o $(FDF) $(FDF).c $(SRCS) $(LIBFT) $(FLAGS) -lm
 
 #.PHONY POUR LES RULES
 .PHONY: clean fclean re all bonus
