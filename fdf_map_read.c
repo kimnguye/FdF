@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:33:20 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 17:01:26 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:23:05 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_init_max(int fd, t_mlx *vars)
 		gnl = get_next_line(fd);
 	}
 	close(fd);
-	vars->max = vars->max_x * vars->max_y;
+	 vars->max = vars->max_x * vars->max_y;
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:12:46 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 15:37:04 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:22:04 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ t_map	*ft_malloc_map(t_mlx *vars);
 void	ft_copy_map(t_map *map, t_map *res, t_mlx *vars)
 {
 	int		i;
-	int		nb;
 
 	i = 0;
-	nb = vars->max_x * vars->max_y;
-	while (i < nb)
+	while (i < vars->max)
 	{
 		res->x[i] = map->x[i];
 		res->y[i] = map->y[i];
@@ -40,14 +38,12 @@ t_map	*ft_dup_map(t_map *map, t_mlx *vars)
 {
 	t_map	*dup;
 	int		i;
-	int		nb;
 
 	dup = ft_malloc_map(vars);
 	if (!dup)
 		return (NULL);
 	i = 0;
-	nb = vars->max_x * vars->max_y;
-	while (i < nb)
+	while (i < vars->max)
 	{
 		dup->x[i] = map->x[i];
 		dup->y[i] = map->y[i];
@@ -71,22 +67,20 @@ void	ft_free_map(t_map *map)
 t_map	*ft_malloc_map(t_mlx *vars)
 {
 	t_map	*map;
-	int		nb;
 
 	map = malloc(sizeof(t_map));
 	if (map == NULL)
 		return (NULL);
-	nb = vars->max_x * vars->max_y;
-	map->x = malloc(sizeof(int) * nb);
+	map->x = malloc(sizeof(int) * vars->max);
 	if (map->x == NULL)
 		return (free(map), NULL);
-	map->y = malloc(sizeof(int) * nb);
+	map->y = malloc(sizeof(int) * vars->max);
 	if (map->y == NULL)
 		return (free(map->x), free(map), NULL);
-	map->z = malloc(sizeof(int) * nb);
+	map->z = malloc(sizeof(int) * vars->max);
 	if (map->z == NULL)
 		return (free(map->x), free(map->y), free(map), NULL);
-	map->color = malloc(sizeof(int) * nb);
+	map->color = malloc(sizeof(int) * vars->max);
 	if (map->color == NULL)
 		return (free(map->x), free(map->y), free(map->z), free(map), NULL);
 	return (map);

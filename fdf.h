@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:43:55 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/12 00:12:51 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:13:58 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_draw_line(int x, int y, t_mlx *param);
 void	ft_black_map(t_mlx *vars);
 
 //img utils
-void	ft_put_pixel_to_img(t_mlx *vars, int x, int y, int color);
+void	ft_pixel_to_img(t_mlx *vars, int x, int y, int color);
 int		isin_img(int x, int y);
 
 //events handler

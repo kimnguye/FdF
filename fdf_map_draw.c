@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 20:10:22 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 22:01:54 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:13:58 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_draw_line(int x, int y, t_mlx *param)
 		b[1] = y;
 		b[2] = GREEN;
 		ft_printf("A(%i; %i), B(%i, %i)", a[0], a[1], x, y);
-		ft_put_pixel_to_img(param, x, y, b[2]);
+		ft_pixel_to_img(param, x, y, b[2]);
 		a[3] = 0;
 	}
 	else
@@ -34,7 +34,7 @@ void	ft_draw_line(int x, int y, t_mlx *param)
 		a[1] = y;
 		a[2] = BLUE;
 		a[3] = 1;
-		ft_put_pixel_to_img(param, x, y, a[2]);
+		ft_pixel_to_img(param, x, y, a[2]);
 	}
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 }

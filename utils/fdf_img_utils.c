@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:31:44 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/12 00:11:57 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:15:02 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		isin_img(int x, int y)
 }
 
 /*put pixel to img*/
-void	ft_put_pixel_to_img(t_mlx *vars, int x, int y, int color)
+void	ft_pixel_to_img(t_mlx *vars, int x, int y, int color)
 {
 	int	pixel;
 
@@ -46,6 +46,7 @@ int	ft_color(t_mlx *vars, int a, int b, t_slope *ab)
 		+ (1 - frac) * ((vars->res->color[a] >> 16) & 0xFF);
 	color_g = frac * ((vars->res->color[b] >> 8) & 0xFF)
 		+ (1 - frac) * ((vars->res->color[a] >> 8) & 0xFF);
-	color_b = frac * (vars->res->color[b] & 0xFF) + (1 - frac) * (vars->res->color[a] & 0xFF);
+	color_b = frac * (vars->res->color[b] & 0xFF)
+		+ (1 - frac) * (vars->res->color[a] & 0xFF);
 	return ((color_r << 16) | (color_g << 8) | color_b);
 }
