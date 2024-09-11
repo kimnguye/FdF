@@ -6,19 +6,18 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:31:38 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 23:04:42 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:00:40 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 void	ft_trans(t_map *maps, t_mlx *vars);
-void	ft_center_and_trans(t_map *maps, t_mlx *vars, int code);
+void	ft_center_and_trans(t_map *maps, t_mlx *vars);
 void	ft_transfo(t_map *map, t_map *res, t_mlx *vars);
 void	ft_margin(t_map *maps, t_mlx *vars);
-/* ft_zoom(param->map, param->res, param, param->zoom);
-	ft_altitude(param->res, param);
-	ft_iso(param->res, param->rot_iso, param);*/
+/* ft_zoom, ft_altitude, ft_iso
+view 0 = from the top, view 1 = iso*/
 void	ft_transfo(t_map *map, t_map *res, t_mlx *vars)
 {
 	int		i;
@@ -27,8 +26,8 @@ void	ft_transfo(t_map *map, t_map *res, t_mlx *vars)
 	int		tmp_y;
 
 	rad = de_to_rad(vars->rot_iso);
-	i = 0;
-	while (i < vars->max)
+	i = -1;
+	while (++i < vars->max)
 	{
 		tmp_x = map->x[i] * vars->zoom;
 		tmp_y = map->y[i] * vars->zoom;
@@ -36,9 +35,9 @@ void	ft_transfo(t_map *map, t_map *res, t_mlx *vars)
 			res->z[i] = map->z[i] * (vars->zoom * 0.2) * vars->altitude;
 		res->x[i] = (tmp_x - tmp_y) * cos(rad);
 		res->y[i] = (tmp_x + tmp_y) * sin(rad) - res->z[i];
-		i++;
 	}
 }
+
 void	ft_margin(t_map *maps, t_mlx *vars)
 {
 	int		x_margin;
@@ -53,7 +52,7 @@ void	ft_margin(t_map *maps, t_mlx *vars)
 	vars->margin_y = y_margin;
 }
 /*centers the maps AND applies a translation to the drawing*/
-void	ft_center_and_trans(t_map *maps, t_mlx *vars, int code)
+void	ft_center_and_trans(t_map *maps, t_mlx *vars)
 {
 	int		i;
 	int		add_x;
@@ -61,11 +60,6 @@ void	ft_center_and_trans(t_map *maps, t_mlx *vars, int code)
 
 	add_x = vars->trans_x;
 	add_y = vars->trans_y;
-	if (code == ROT_CODE)
-	{
-		add_x = 0;
-		add_y = 0;
-	}
 	ft_margin(maps, vars);
 	i = 0;
 	while (i < vars->max)
@@ -74,8 +68,6 @@ void	ft_center_and_trans(t_map *maps, t_mlx *vars, int code)
 		maps->y[i] += vars->margin_y + add_y;
 		i++;
 	}
-	vars->center_x += vars->trans_x;
-	vars->center_y += vars->trans_y;
 	return ;
 }
 
@@ -89,7 +81,7 @@ void	ft_zoom(t_map *map, t_map *res, t_mlx *vars, float zoom)
 	{
 		res->x[i] = map->x[i] * zoom;
 		res->y[i] = map->y[i] * zoom;
-		res->z[i] = map->z[i] * (zoom * 0.2);
+		res->z[i] = map->z[i] * (zoom * 0.2) * vars->altitude;
 		i++;
 	}
 }

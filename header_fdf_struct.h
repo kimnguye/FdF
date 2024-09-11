@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:37:03 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 17:35:30 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 23:45:34 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_mlx
 	int		rot_z;
 	int		rot_iso;
 	float	altitude;
+	int		view;
 }	t_mlx;
 
 #endif

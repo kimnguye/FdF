@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 14:53:47 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 16:53:30 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:03:09 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,16 @@ void	ft_segment_vertical(int a, int b, t_mlx *param, t_slope *ab)
 	int	y;
 	int	y_max;
 
-	y = param->res->y[a];
-	y_max = param->res->y[b];
+	if (param->res->y[a] <= param->res->y[b])
+	{
+		y = param->res->y[a];
+		y_max = param->res->y[b];
+	}
+	else
+	{
+		y = param->res->y[b];
+		y_max = param->res->y[a];
+	}
 	while (y <= y_max)
 	{
 		if (isin_img(param->res->x[a], y))

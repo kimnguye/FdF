@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:41:12 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 17:05:08 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 23:26:45 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define ZOOM_INIT 5.00
 # define ZOOM_PLUS 1.10
 # define ZOOM_MINUS 0.95
-# define TRANS 5
+# define TRANS 8
 # define DEFAULT_COLOR YELLOW
 
 //CODE CALCULATION

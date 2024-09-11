@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:43:55 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 23:08:56 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 23:59:27 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_launch_hi(t_mlx *vars);
 //different map views
 void	ft_initial_view(t_mlx *param);
 void	ft_above_view(t_mlx *vars);
-void	ft_calc_view(t_mlx *param, int code);
+void	ft_calc_view(t_mlx *param);
 t_point	*ft_extrem_values(t_map *maps, t_mlx *vars);
 void	ft_iso_view(t_mlx *param);
 
@@ -61,7 +61,7 @@ void	ft_segment_q4(int a, int b, t_mlx *vars, t_slope *ab);
 //transfo
 void	ft_transfo(t_map *map, t_map *res, t_mlx *vars);
 void	ft_zoom(t_map *map, t_map *res, t_mlx *vars, float zoom);
-void	ft_center_and_trans(t_map *maps, t_mlx *vars, int code);
+void	ft_center_and_trans(t_map *maps, t_mlx *vars);
 void	ft_iso(t_map *maps, int degree, t_mlx *vars);
 
 //rotation

@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:51:58 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 17:33:40 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/11 23:46:49 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_init_param_view(t_mlx *vars)
 	vars->rot_z = 0;
 	vars->center_x = WIDTH / 2;
 	vars->center_y = HEIGHT / 2;
+	vars->view = 1;
 }
 
 /*returns 1 on error :
