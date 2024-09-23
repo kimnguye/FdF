@@ -14,7 +14,7 @@ LIBFT_MAKE = make --no-print-directory -C libft
 LIBFT = libft.a
 CC = cc -Wall -Wextra -Werror
 FLAGS = -L"\\wsl.localhost\Ubuntu\mnt\wslg\distro\usr\local\lib\libmlx.a" -lmlx -lXext -lX11
-FLAG42 = -L"/home/kimnguye/sgoinfre/minilibx-linux" -lmlx -lXext -lX11
+FLAG42 = -L"/home/kimnguye/sgoinfre/minilibx-linux" -lmlx -lXext -lX11 -O3
 all: $(LIBFT) $(FDF)
 
 clean:
