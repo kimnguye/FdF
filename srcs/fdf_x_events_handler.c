@@ -6,11 +6,16 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:29:23 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 23:42:51 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:07:15 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
+
+int		mouse_hook(int button, int x, int y, t_mlx *param);
+int		key_hook(int key, t_mlx *param);
+int		ft_rot_handler(int key, t_mlx *param);
+void	ft_translation_handler(int key, t_mlx *vars);
 
 /*mouse events hendler; (x, y) are the coordinates of the click in the window,
 and button tells you which mouse button was pressed*/

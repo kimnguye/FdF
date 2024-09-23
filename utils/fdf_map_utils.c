@@ -6,11 +6,11 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:12:46 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/12 00:22:04 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:08:06 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../includes/fdf.h"
 
 void	ft_copy_map(t_map *map, t_map *res, t_mlx *vars);
 t_map	*ft_dup_map(t_map *map, t_mlx *vars);

@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_map_draw.c                                     :+:      :+:    :+:   */
+/*   fdf_draw_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 20:10:22 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/12 00:13:58 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:14:58 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 void	ft_draw_map(t_mlx *vars);
+void	ft_erase_map(t_mlx *vars);
+void	ft_draw_line(int x, int y, t_mlx *param);
+void	ft_segment(int a, int b, t_mlx *vars);
 
 void	ft_draw_line(int x, int y, t_mlx *param)
 {
@@ -63,8 +66,8 @@ void	ft_segment(int a, int b, t_mlx *vars)
 	free(ab);
 }
 
-/*puts the res in black*/
-void	ft_black_map(t_mlx *vars)
+/*puts the res map in black*/
+void	ft_erase_map(t_mlx *vars)
 {
 	int	i;
 

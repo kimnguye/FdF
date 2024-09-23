@@ -6,11 +6,11 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 10:48:15 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/08/28 12:10:12 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:07:27 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 #define LAUNCH_IMG_PATH "xpm/Welcome-to-FdF-42-1080.xpm"
 #define BYE_IMG_PATH "xpm/Goodbye-FdF-42-1080.xpm"
 

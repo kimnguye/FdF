@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_transfo_all.c                                  :+:      :+:    :+:   */
+/*   fdf_transfo1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:31:38 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/12 00:00:40 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:11:25 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
-void	ft_trans(t_map *maps, t_mlx *vars);
 void	ft_center_and_trans(t_map *maps, t_mlx *vars);
 void	ft_transfo(t_map *map, t_map *res, t_mlx *vars);
 void	ft_margin(t_map *maps, t_mlx *vars);
+void	ft_zoom(t_map *map, t_map *res, t_mlx *vars, float zoom);
+
 /* ft_zoom, ft_altitude, ft_iso
 view 0 = from the top, view 1 = iso*/
 void	ft_transfo(t_map *map, t_map *res, t_mlx *vars)
@@ -51,6 +52,22 @@ void	ft_margin(t_map *maps, t_mlx *vars)
 	vars->margin_x = x_margin;
 	vars->margin_y = y_margin;
 }
+
+/*applies a zoom of +/- 5% to the drawing*/
+void	ft_zoom(t_map *map, t_map *res, t_mlx *vars, float zoom)
+{
+	int	i;
+
+	i = 0;
+	while (i < vars->max)
+	{
+		res->x[i] = map->x[i] * zoom;
+		res->y[i] = map->y[i] * zoom;
+		res->z[i] = map->z[i] * (zoom * 0.2) * vars->altitude;
+		i++;
+	}
+}
+
 /*centers the maps AND applies a translation to the drawing*/
 void	ft_center_and_trans(t_map *maps, t_mlx *vars)
 {
@@ -69,37 +86,4 @@ void	ft_center_and_trans(t_map *maps, t_mlx *vars)
 		i++;
 	}
 	return ;
-}
-
-/*applies a zoom of +/- 5% to the drawing*/
-void	ft_zoom(t_map *map, t_map *res, t_mlx *vars, float zoom)
-{
-	int	i;
-
-	i = 0;
-	while (i < vars->max)
-	{
-		res->x[i] = map->x[i] * zoom;
-		res->y[i] = map->y[i] * zoom;
-		res->z[i] = map->z[i] * (zoom * 0.2) * vars->altitude;
-		i++;
-	}
-}
-
-/*applies the isometric projection*/
-void	ft_iso(t_map *maps, int degree, t_mlx *vars)
-{
-	int			i;
-	int			tmp;
-	float		rad;
-
-	rad = de_to_rad(degree);
-	i = 0;
-	while (i < vars->max)
-	{
-		tmp = maps->x[i];
-		maps->x[i] = (tmp - maps->y[i]) * cos(rad);
-		maps->y[i] = (tmp + maps->y[i]) * sin(rad) - maps->z[i];
-		i++;
-	}
 }

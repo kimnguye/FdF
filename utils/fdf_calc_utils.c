@@ -6,11 +6,11 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:28:48 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 22:08:42 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:08:01 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../includes/fdf.h"
 
 double	ft_dist(int x1, int y1, int x2, int y2);
 double	ft_dist_percent(t_map *maps, int a, int b, t_slope *ab);

@@ -6,11 +6,11 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 14:53:47 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/12 00:16:58 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:07:52 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 void	ft_segment_vertical(int a, int b, t_mlx *param, t_slope *ab)
 {
@@ -31,7 +31,7 @@ void	ft_segment_vertical(int a, int b, t_mlx *param, t_slope *ab)
 	{
 		if (isin_img(param->res->x[a], y))
 			ft_pixel_to_img(param, param->res->x[a], y,
-			ft_color(param, a, b, ab));
+				ft_color(param, a, b, ab));
 		y++;
 	}
 }

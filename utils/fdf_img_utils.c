@@ -6,11 +6,11 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:31:44 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/12 00:15:02 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:08:03 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../includes/fdf.h"
 
 int		isin_img(int x, int y);
 

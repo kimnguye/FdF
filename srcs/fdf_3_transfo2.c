@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_transfo_rotation.c                             :+:      :+:    :+:   */
+/*   fdf_transfo2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:23:36 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 23:01:31 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:11:15 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
-// void	rotate_x(int y, int z, t_mlx *vars);
-// void	rotate_y(int x, int z, t_mlx *vars);
-// void	rotate_z(int x, int y, t_mlx *vars);
+void	ft_iso(t_map *maps, int degree, t_mlx *vars);
+void	ft_rotate(t_map *res, t_mlx *vars);
 
-
-// rotate_x(res->y[i], res->z[i], vars);
-// rotate_y(res->x[i], res->z[i], vars);
-// rotate_z(res->x[i], res->y[i], vars);
 /*rotate x (step 0), y (step 1) and z (step 2)*/
 void	ft_rotate(t_map *res, t_mlx *vars)
 {
@@ -44,6 +39,24 @@ void	ft_rotate(t_map *res, t_mlx *vars)
 		res->x[i] = tmp[2] * cos(rad[2]) - res->y[i] * sin(rad[2]);
 		res->y[i] = tmp[2] * sin(rad[2]) + res->y[i] * cos(rad[2]);
 		ft_move_to_center(&res->x[i], &res->y[i], vars);
+		i++;
+	}
+}
+
+/*applies the isometric projection*/
+void	ft_iso(t_map *maps, int degree, t_mlx *vars)
+{
+	int			i;
+	int			tmp;
+	float		rad;
+
+	rad = de_to_rad(degree);
+	i = 0;
+	while (i < vars->max)
+	{
+		tmp = maps->x[i];
+		maps->x[i] = (tmp - maps->y[i]) * cos(rad);
+		maps->y[i] = (tmp + maps->y[i]) * sin(rad) - maps->z[i];
 		i++;
 	}
 }
