@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:43:55 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 13:24:13 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:29:50 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <string.h>
 # include "../libft/includes/libft.h"
 # include <math.h>
-# include "header_fdf_define.h"
-# include "header_fdf_struct.h"
+# include "fdf_define.h"
+# include "fdf_struct.h"
 
 /* FUNCTIONS */
 
