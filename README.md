@@ -1,7 +1,7 @@
 #Fil de fer
 
 FDF est un projet qui fait partie du tronc commun de l'ecole 42.
-C'est mon premier projet graphique. On utilise la bibliotheque graphique bibliotheque graphique de 42: La minilibX. Cette bibliothèque inclut des outils basiques permettant d’ouvrir une fenêtre, de créer des images et de gérer des événements clavier et souris.
+C'est mon premier projet graphique.
 
 On a le choix entre trois projets pour le premier projet graphique de 42:
 - so_long : lire une carte et lancer un jeu en 2D
@@ -10,7 +10,10 @@ On a le choix entre trois projets pour le premier projet graphique de 42:
 
 J'ai vraiment aime faire ce projet, je trouve qu'il en jette !
 
-J'implemente l'algorithme de Bresenham pour tracer un segment entre 2 points.
+#Technique
+- Projet codé en langage C.
+- Bibliotheque graphique de 42: la minilibX. Cette bibliothèque inclut des outils basiques permettant d’ouvrir une fenêtre, de créer des images et de gérer des événements clavier et souris.
+- J'implemente l'algorithme de Bresenham pour tracer un segment entre 2 points.
 
 Ce FDF est different de ma version 'old' car il utilise une structure contenant des tableaux de int.
 Le FDF old utilise des tableaux de structures t_point.
