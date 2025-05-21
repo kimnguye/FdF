@@ -13,11 +13,8 @@ Le programme prend en argument un fichier texte qui represente une carte d'altit
 - Bibliotheque graphique de 42: la minilibX. Cette bibliothèque inclut des outils basiques permettant d’ouvrir une fenêtre, de créer des images et de gérer des événements clavier et souris.
 - J'implemente l'algorithme de Bresenham pour tracer un segment entre 2 points.
 
-  
-Ce FDF est different de ma version 'old' car il utilise une structure contenant des tableaux de int.
-Le FDF old utilise des tableaux de structures t_point.
 
-#Resultats:
+#Resultats
 
 Un apercu du FdF avec la carte du Japon et celle de la France :
 
