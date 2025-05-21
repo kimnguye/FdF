@@ -15,7 +15,9 @@ J'implemente l'algorithme de Bresenham pour tracer un segment entre 2 points.
 Ce FDF est different de ma version 'old' car il utilise une structure contenant des tableaux de int.
 Le FDF old utilise des tableaux de structures t_point.
 
-#Results
+#Resultats:
+
+Un apercu du FdF avec la carte du Japon et celle de la France :
 
 ![Screenshot 2025-05-21 160325](https://github.com/user-attachments/assets/e06ce32b-36cb-4449-ae8b-77790e81a25e)
 
