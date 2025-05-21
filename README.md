@@ -1,7 +1,7 @@
 #Fil de fer
 
 FDF est un projet qui fait partie du tronc commun de l'ecole 42.
-C'est mon premier projet graphique.
+C'est mon premier projet graphique. On utilise la bibliotheque graphique bibliotheque graphique de 42: La minilibX. Cette bibliothèque inclut des outils basiques permettant d’ouvrir une fenêtre, de créer des images et de gérer des événements clavier et souris.
 
 On a le choix entre trois projets pour le premier projet graphique de 42:
 - so_long : lire une carte et lancer un jeu en 2D
