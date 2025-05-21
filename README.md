@@ -8,6 +8,7 @@ On a le choix entre trois projets pour le premier projet graphique de 42:
 - fractol : representer des fractoles
 - Fdf: lire un fichier de coordonnees d'altitude et le representer
 
+J'ai vraiment aime faire ce projet, je trouve qu'il en jette !
 
 J'implemente l'algorithme de Bresenham pour tracer un segment entre 2 points.
 
