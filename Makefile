@@ -13,10 +13,9 @@ CC = cc -Wall -Wextra -Werror  -g -g3 -lm
 
 MLX_PATH	=	minilibx-linux
 
-MLX_MAKE	=	make -C $(MLX_PATH)
+MLX_MAKE	=	make --no-print-directory  -C $(MLX_PATH)
 
 FLAG_MLX	=   -L$(MLX_PATH) -I/opt/X11/include -Lminilibx-linux -lmlx -L/opt/X11/lib -lX11 -lXext -O3
-#FLAG42 = -L"/home/kimnguye/sgoinfre/minilibx-linux" -lmlx -lXext -lX11 -O3
 
 LIBFT_MAKE = make --no-print-directory -C libft
 
@@ -26,7 +25,7 @@ all: $(LIBFT) $(FDF)
 
 update:
 	@git submodule update --init --recursive
-	
+
 clean:
 	@echo "Deleting..."
 	@$(MLX_MAKE) clean
