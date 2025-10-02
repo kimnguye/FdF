@@ -6,13 +6,13 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:53:03 by kimnguye          #+#    #+#             */
-/*   Updated: 2025/10/02 15:11:02 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:53:09 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_mlx	*fdf_init_vars(t_mlx *vars, char **argv);
+void	fdf_init_vars(t_mlx *vars, char **argv);
 int		ft_init_max(int fd, t_mlx *vars);
 int		fdf_init_map(t_mlx *vars, char **argv);
 void	ft_init_param_view(t_mlx *vars);
@@ -37,7 +37,7 @@ int	ft_init_max(int fd, t_mlx *vars)
 		line_x = ft_countsplits(gnl, ' ');
 		if (line_x < vars->max_x)
 			return (close(fd), get_next_line(fd), free(gnl),
-				ft_printf("A rectangular map is expected!"), -2);
+				ft_printf("A rectangular map is expected!\n"), -2);
 		free(gnl);
 		gnl = get_next_line(fd);
 	}
@@ -81,26 +81,26 @@ void	ft_init_param_view(t_mlx *vars)
 	vars->center_y = HEIGHT / 2;
 	vars->view = 1;
 }
-/*initialize mlx_ptr, win_ptr, img_ptr, img_data, img_hi*/
-t_mlx	*fdf_init_vars(t_mlx *vars, char **argv)
+
+/*initialize vars->map, mlx_ptr, win_ptr, img_ptr, img_data, img_hi*/
+void	fdf_init_vars(t_mlx *vars, char **argv)
 {
 	if (fdf_init_map(vars, argv) < 0)
-		return (free(vars), exit(1), NULL);
+		ft_close(vars, 0);
 	vars->mlx = mlx_init();
 	if (!vars->mlx)
-		return (free(vars), exit(1), NULL);
+		ft_close(vars, 0);
 	vars->win = mlx_new_window(vars->mlx, WIDTH, HEIGHT, "kimnguye - FdF 42");
 	if (!vars->win)
-		return (ft_close(vars, 0), NULL);
+		ft_close(vars, 1);
 	vars->img = mlx_new_image(vars->mlx, WIDTH, HEIGHT);
 	if (!vars->img)
-		return (ft_close(vars, 1), NULL);
+		ft_close(vars, 2);
 	vars->img_data = mlx_get_data_addr
 		(vars->img, &vars->pixel_bits, &vars->line_size, &vars->endian);
 	if (!vars->img_data)
-		return (ft_close(vars, 2), NULL);
+		ft_close(vars, 3);
 	ft_launch_hi(vars);
 	if (!vars->img_hi)
-		return (ft_close(vars, 3), NULL);
-	return (vars);
+		ft_close(vars, 4);
 }

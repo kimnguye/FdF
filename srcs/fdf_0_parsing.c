@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_parsing.c                                      :+:      :+:    :+:   */
+/*   fdf_0_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:51:58 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 13:15:31 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:43:45 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,25 @@ int	fdf_parsing(int argc, char **argv)
 }
 
 /*closes the program and uses a closing code*/
-int	ft_close(t_mlx *param, unsigned int code)
+int	ft_close(t_mlx *vars, unsigned int code)
 {
+	if (code >= 6)
+		ft_free_map(vars->res);
 	if (code >= 5)
-		ft_free_map(param->res);
+		ft_free_map(vars->map);
 	if (code >= 4)
-		ft_free_map(param->map);
+		mlx_destroy_image(vars->mlx, vars->img_hi);
 	if (code >= 3)
-		mlx_destroy_image(param->mlx, param->img_hi);
+		mlx_destroy_image(vars->mlx, vars->img);
 	if (code >= 2)
-		mlx_destroy_image(param->mlx, param->img);
+		mlx_destroy_window(vars->mlx, vars->win);
 	if (code >= 1)
-		mlx_destroy_window(param->mlx, param->win);
-	mlx_destroy_display(param->mlx);
-	free(param->mlx);
-	free(param);
-	if (code <= 5)
+	{
+		mlx_destroy_display(vars->mlx);
+		free(vars->mlx);
+	}
+	free(vars);
+	if (code <= 6)
 		ft_printf(" (error code: %i)\n", code);
 	exit(EXIT_SUCCESS);
 	return (0);

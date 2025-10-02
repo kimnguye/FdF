@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:40:50 by kimnguye          #+#    #+#             */
-/*   Updated: 2025/10/02 15:10:28 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:49:48 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	main(int argc, char **argv)
 
 	if (fdf_parsing(argc, argv))
 		return (1);
-	vars = malloc (sizeof(t_mlx));
+	vars = malloc(sizeof(t_mlx));
 	if (!vars)
 		return (ft_printf("Error: malloc failed!\n"), 1);
-	vars = fdf_init_vars(vars, argv);
+	fdf_init_vars(vars, argv);
 	ft_printf("Memory allocation : SUCCES\n");
 	fd = open(argv[1], O_RDONLY);
 	fdf_save_map(fd, vars);
