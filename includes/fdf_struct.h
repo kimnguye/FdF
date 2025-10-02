@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header_fdf_struct.h                                :+:      :+:    :+:   */
+/*   fdf_struct.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:37:03 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 23:45:34 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:57:32 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_FDF_STRUCT_H
-# define HEADER_FDF_STRUCT_H
+#ifndef FDF_STRUCT_H
+# define FDF_STRUCT_H
 
 /* STRUCTURES */
 

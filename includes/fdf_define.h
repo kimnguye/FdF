@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header_fdf_define.h                                :+:      :+:    :+:   */
+/*   fdf_define.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:41:12 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/11 23:26:45 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:57:17 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_FDF_DEFINE_H
-# define HEADER_FDF_DEFINE_H
+#ifndef FDF_DEFINE_H
+# define FDF_DEFINE_H
 
 # define _USE_MATH_DEFINES
 

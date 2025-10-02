@@ -6,15 +6,14 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:43:55 by kimnguye          #+#    #+#             */
-/*   Updated: 2025/10/02 15:11:14 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:55:55 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "mlx.h"
-//# include "/home/kimnguye/sgoinfre/minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -29,12 +28,12 @@
 void	ft_launch_hi(t_mlx *vars);
 
 //parsing and errors handler
-int	fdf_parsing(int argc, char **argv);
-int	ft_close(t_mlx *param, unsigned int code);
-int	ft_close_all(t_mlx *param);
+int		fdf_parsing(int argc, char **argv);
+int		ft_close(t_mlx *param, unsigned int code);
+int		ft_close_all(t_mlx *param);
 
 //initialize variables
-t_mlx	*fdf_init_vars(t_mlx *vars, char **argv);
+void	fdf_init_vars(t_mlx *vars, char **argv);
 int		ft_init_max(int fd, t_mlx *vars);
 int		fdf_init_map(t_mlx *vars, char **argv);
 void	ft_init_param_view(t_mlx *vars);
