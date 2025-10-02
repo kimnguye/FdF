@@ -5,6 +5,17 @@ C'est mon premier projet graphique. A partir d'un fichier qui represente une car
 
 J'ai vraiment aime faire ce projet, je trouve qu'il en jette !
 
+#Utilisation
+
+- Touches `1` et `3` pour rotation autour de l'axe horizontal (x)
+- Touches `4` et `6` pour rotation autour de l'axe vertical	(y)
+- Touches `7` et `9` pour rotation autour de l'axe profondeur (z)
+- Touches `2` et `8` pour reduire/augmenter l'altitude
+- Bouton central de la souris (scroll) pour zooomer/dezoomer
+- Touche `espace` pour une vue du dessus
+- Touche `entree` pour reinitialiser la vue
+- Touches directionnelles pour translation
+
 #Technique
 
 Le programme prend en argument un fichier texte qui represente une carte d'altitude (format ESRI Grid), la lit et l'affiche à l'ecran.
