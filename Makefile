@@ -1,14 +1,13 @@
 FDF = fdf
 
-UTILS = fdf_point_utils.c fdf_map_utils.c fdf_calc_utils.c fdf_img_utils.c \
-		fdf_bresenham.c
-
 FILES = fdf_0_parsing.c fdf_1_init.c fdf_2_save_map.c \
 		fdf_3_transfo1.c fdf_3_transfo2.c \
 		fdf_4_draw_map.c fdf_5_view.c \
-		fdf_x_events_handler.c fdf_x_launch.c
+		fdf_x_events_handler.c fdf_x_launch.c \
+		fdf_point_utils.c fdf_map_utils.c fdf_calc_utils.c fdf_img_utils.c \
+		fdf_bresenham.c
 
-SRCS = $(UTILS:%=utils/%) $(FILES:%=srcs/%)
+SRCS = $(FILES:%=srcs/%)
 
 LIBFT_MAKE = make --no-print-directory -C libft
 LIBFT = libft.a
@@ -35,8 +34,8 @@ $(LIBFT):
 	@$(LIBFT_MAKE) all
 	@cp libft/$(LIBFT) .
 
-$(FDF): $(FDF).c $(SRCS) $(LIBFT)
-	$(CC) -o $(FDF) $(FDF).c $(SRCS) $(LIBFT) $(FLAG42) -lm
+$(FDF): main.c $(SRCS) $(LIBFT)
+	$(CC) -o $(FDF) main.c $(SRCS) $(LIBFT) $(FLAG42) -lm
 
 #.PHONY POUR LES RULES
 .PHONY: clean fclean re all bonus
