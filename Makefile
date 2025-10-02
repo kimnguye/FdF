@@ -1,6 +1,7 @@
 FDF = fdf
 
-FILES = fdf_0_parsing.c fdf_1_init.c fdf_2_save_map.c \
+FILES = main.c \
+		fdf_0_parsing.c fdf_1_init.c fdf_2_save_map.c \
 		fdf_3_transfo1.c fdf_3_transfo2.c \
 		fdf_4_draw_map.c fdf_5_view.c \
 		fdf_x_events_handler.c fdf_x_launch.c \
@@ -27,15 +28,15 @@ update:
 	@git submodule update --init --recursive
 
 clean:
-	@echo "Deleting..."
+	@echo "\033[1;32m""Deleting...""\033[0m"
 	@$(MLX_MAKE) clean
 	@$(LIBFT_MAKE) clean
-	@echo "rm *.o"
+	@echo "\033[1;32m""make clean: SUCCESS""\033[0m"
 
 fclean: clean
 	@$(LIBFT_MAKE) fclean
-	rm -rf $(FDF) $(LIBFT)
-
+	@rm -rf $(FDF) $(LIBFT)
+	@echo "\033[1;32m""make fclean: SUCCESS""\033[0m"
 re: fclean all
 
 bonus: fclean all
@@ -44,9 +45,9 @@ $(LIBFT):
 	@$(LIBFT_MAKE) all
 	@cp libft/$(LIBFT) .
 
-$(FDF): main.c $(SRCS) $(LIBFT)
+$(FDF): $(SRCS) $(LIBFT)
 	@$(MLX_MAKE)
-	@$(CC) -o $(FDF) main.c $(SRCS) $(LIBFT) $(FLAG_MLX)
+	@$(CC) -o $(FDF) $(SRCS) $(LIBFT) $(FLAG_MLX)
 	@echo "\033[1;32m""🎉 compilation of $(FDF): ""SUCCESS !🎉""\033[0m"
 
 #.PHONY POUR LES RULES
