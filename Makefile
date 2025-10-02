@@ -9,10 +9,6 @@ FILES = fdf_0_parsing.c fdf_1_init.c fdf_2_save_map.c \
 
 SRCS = $(FILES:%=srcs/%)
 
-LIBFT_MAKE = make --no-print-directory -C libft
-
-LIBFT = libft.a
-
 CC = cc -Wall -Wextra -Werror  -g -g3 -lm
 
 MLX_PATH	=	minilibx-linux
@@ -22,11 +18,18 @@ MLX_MAKE	=	make -C $(MLX_PATH)
 FLAG_MLX	=   -L$(MLX_PATH) -I/opt/X11/include -Lminilibx-linux -lmlx -L/opt/X11/lib -lX11 -lXext -O3
 #FLAG42 = -L"/home/kimnguye/sgoinfre/minilibx-linux" -lmlx -lXext -lX11 -O3
 
+LIBFT_MAKE = make --no-print-directory -C libft
+
+LIBFT = libft.a
 
 all: $(LIBFT) $(FDF)
 
+update:
+	@git submodule update --init --recursive
+	
 clean:
 	@echo "Deleting..."
+	@$(MLX_MAKE) clean
 	@$(LIBFT_MAKE) clean
 	@echo "rm *.o"
 
@@ -43,7 +46,9 @@ $(LIBFT):
 	@cp libft/$(LIBFT) .
 
 $(FDF): main.c $(SRCS) $(LIBFT)
-	$(CC) -o $(FDF) main.c $(SRCS) $(LIBFT) $(FLAG_MLX)
+	@$(MLX_MAKE)
+	@$(CC) -o $(FDF) main.c $(SRCS) $(LIBFT) $(FLAG_MLX)
+	@echo "\033[1;32m""🎉 compilation of $(FDF): ""SUCCESS !🎉""\033[0m"
 
 #.PHONY POUR LES RULES
 .PHONY: clean fclean re all bonus

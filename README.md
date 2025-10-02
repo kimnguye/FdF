@@ -13,6 +13,7 @@ Le programme prend en argument un fichier texte qui represente une carte d'altit
 - Bibliotheque graphique de 42: la minilibX. Cette bibliothèque inclut des outils basiques permettant d’ouvrir une fenêtre, de créer des images et de gérer des événements clavier et souris.
 - J'implemente l'algorithme de Bresenham pour tracer un segment entre 2 points.
 
+Utilisation de `git submodule add` pour creer un submodule.
 
 #Resultats
 
