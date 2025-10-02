@@ -6,17 +6,15 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:31:44 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 13:08:03 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 19:00:05 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int		isin_img(int x, int y);
-
 /*returns 1 if it is inside the img
 returns 0 if it is outside the img*/
-int		isin_img(int x, int y)
+int	isin_img(int x, int y)
 {
 	if (x >= 0 && x <= WIDTH && y >= 0 && y <= HEIGHT)
 		return (1);
