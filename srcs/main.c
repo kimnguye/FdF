@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:40:50 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 13:16:04 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 15:10:28 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fdf.h"
+#include "../includes/fdf.h"
 
 int	main(int argc, char **argv)
 {
@@ -19,12 +19,10 @@ int	main(int argc, char **argv)
 
 	if (fdf_parsing(argc, argv))
 		return (1);
-	vars = fdf_init_vars();
+	vars = malloc (sizeof(t_mlx));
 	if (!vars)
-		return (1);
-	fdf_init_map(vars, argv);
-	if (vars->map == NULL)
-		return (1);
+		return (ft_printf("Error: malloc failed!\n"), 1);
+	vars = fdf_init_vars(vars, argv);
 	ft_printf("Memory allocation : SUCCES\n");
 	fd = open(argv[1], O_RDONLY);
 	fdf_save_map(fd, vars);

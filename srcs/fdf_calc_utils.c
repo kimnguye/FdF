@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:28:48 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 13:08:01 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 14:41:40 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_move_to_center(int *x, int *y, t_mlx *vars)
 	*x += vars->center_x;
 	*y += vars->center_y;
 }
+
 /*returns dist runs / dist total*/
 double	ft_dist_percent(t_map *maps, int a, int b, t_slope *ab)
 {

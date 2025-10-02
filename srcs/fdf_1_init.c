@@ -6,15 +6,15 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:53:03 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 13:18:25 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 15:11:02 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_mlx	*fdf_init_vars(void);
+t_mlx	*fdf_init_vars(t_mlx *vars, char **argv);
 int		ft_init_max(int fd, t_mlx *vars);
-void	fdf_init_map(t_mlx *vars, char **argv);
+int		fdf_init_map(t_mlx *vars, char **argv);
 void	ft_init_param_view(t_mlx *vars);
 
 /*counts the nb of points in the map (max_x and max_y) fd
@@ -37,30 +37,31 @@ int	ft_init_max(int fd, t_mlx *vars)
 		line_x = ft_countsplits(gnl, ' ');
 		if (line_x < vars->max_x)
 			return (close(fd), get_next_line(fd), free(gnl),
-				ft_printf("Memory allocation: FAILED\n"),
 				ft_printf("A rectangular map is expected!"), -2);
 		free(gnl);
 		gnl = get_next_line(fd);
 	}
 	close(fd);
-	 vars->max = vars->max_x * vars->max_y;
+	vars->max = vars->max_x * vars->max_y;
 	return (0);
 }
 
-/*returns a mallocated map
-close the program on errors*/
-void	fdf_init_map(t_mlx *vars, char **argv)
+/*malloc a t_map for vars->map
+return 0 if succeeded
+return -1 on error*/
+int	fdf_init_map(t_mlx *vars, char **argv)
 {
 	int	fd;
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		return (ft_close(vars, 3), (void)0);
+		return (ft_printf("Error: could not open file %s\n", argv[1]), -1);
 	if (ft_init_max(fd, vars) < 0)
-		return (ft_close(vars, 3), (void)0);
+		return (-1);
 	vars->map = ft_malloc_map(vars);
 	if (vars->map == NULL)
-		return (ft_close(vars, 4), (void)0);
+		return (ft_printf("Error: ft_malloc_map failed\n"), -1);
+	return (0);
 }
 
 /* initialize the parameters view (zoom, translation, center)*/
@@ -81,16 +82,13 @@ void	ft_init_param_view(t_mlx *vars)
 	vars->view = 1;
 }
 /*initialize mlx_ptr, win_ptr, img_ptr, img_data, img_hi*/
-t_mlx	*fdf_init_vars(void)
+t_mlx	*fdf_init_vars(t_mlx *vars, char **argv)
 {
-	t_mlx	*vars;
-
-	vars = malloc (sizeof(t_mlx));
-	if (!vars)
-		return (NULL);
+	if (fdf_init_map(vars, argv) < 0)
+		return (free(vars), exit(1), NULL);
 	vars->mlx = mlx_init();
 	if (!vars->mlx)
-		return (free(vars), NULL);
+		return (free(vars), exit(1), NULL);
 	vars->win = mlx_new_window(vars->mlx, WIDTH, HEIGHT, "kimnguye - FdF 42");
 	if (!vars->win)
 		return (ft_close(vars, 0), NULL);

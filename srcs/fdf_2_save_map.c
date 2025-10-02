@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_save_map.c                                     :+:      :+:    :+:   */
+/*   fdf_2_save_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:33:20 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 13:17:55 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 15:05:05 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 int		ft_init_max(int fd, t_mlx *vars);
-void	fdf_init_map(t_mlx *vars, char **argv);
 void	ft_save_point(char *data, t_mlx *vars, int i, int j);
 void	fdf_save_map(int fd, t_mlx *vars);
 

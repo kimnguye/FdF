@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:43:55 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 14:29:50 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 15:11:14 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	ft_close(t_mlx *param, unsigned int code);
 int	ft_close_all(t_mlx *param);
 
 //initialize variables
-t_mlx	*fdf_init_vars(void);
+t_mlx	*fdf_init_vars(t_mlx *vars, char **argv);
 int		ft_init_max(int fd, t_mlx *vars);
-void	fdf_init_map(t_mlx *vars, char **argv);
+int		fdf_init_map(t_mlx *vars, char **argv);
 void	ft_init_param_view(t_mlx *vars);
 
 //save the map
@@ -74,7 +74,6 @@ int		ft_rot_handler(int key, t_mlx *param);
 void	ft_translation_handler(int key, t_mlx *vars);
 
 //fdf utils
-t_mlx	*fdf_init_vars(void);
 void	ft_init_param_view(t_mlx *vars);
 
 //map utils

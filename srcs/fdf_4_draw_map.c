@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_draw_map.c                                     :+:      :+:    :+:   */
+/*   fdf_4_draw_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 20:10:22 by kimnguye          #+#    #+#             */
-/*   Updated: 2024/09/23 13:14:58 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/02 14:42:02 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_segment(int a, int b, t_mlx *vars);
 
 void	ft_draw_line(int x, int y, t_mlx *param)
 {
-	static int a[4];
+	static int	a[4];
 	int			b[3];
 
 	if (a[3])
