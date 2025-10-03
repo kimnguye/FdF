@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:33:20 by kimnguye          #+#    #+#             */
-/*   Updated: 2025/10/03 12:45:19 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/03 13:20:30 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	fdf_save_map(int fd, t_mlx *vars)
 	int		j;
 
 	j = 0;
-	if (fd < 0)
-		ft_close(vars, 5);
 	line = get_next_line(fd);
 	while (line)
 	{

@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:40:50 by kimnguye          #+#    #+#             */
-/*   Updated: 2025/10/02 18:49:48 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/03 13:20:36 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	main(int argc, char **argv)
 	fdf_init_vars(vars, argv);
 	ft_printf("Memory allocation : SUCCES\n");
 	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		ft_close(vars, 5);
 	fdf_save_map(fd, vars);
 	close (fd);
 	ft_printf("Sauvegarde de la carte: SUCCES\n");
