@@ -7,6 +7,10 @@ J'ai vraiment aime faire ce projet, je trouve qu'il en jette !
 
 #Utilisation
 
+1.	`make update` download or update submodule
+2.	`make` build the executable file
+3.	`./fdf <map_file>` read the file and execute program
+
 - Touches `1` et `3` pour rotation autour de l'axe horizontal (x)
 - Touches `4` et `6` pour rotation autour de l'axe vertical	(y)
 - Touches `7` et `9` pour rotation autour de l'axe profondeur (z)

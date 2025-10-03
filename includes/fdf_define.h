@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:41:12 by kimnguye          #+#    #+#             */
-/*   Updated: 2025/10/02 19:09:49 by kimnguye         ###   ########.fr       */
+/*   Updated: 2025/10/03 12:29:36 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 //CODE CALCULATION
 # define ROT_CODE 3
 # define BASE_HEXA "0123456789ABCDEF"
+
 //masks and events
 # define KEYPRESS_EVENT 2
 # define BUTTONPRESS_EVENT 4
@@ -47,6 +48,7 @@
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
 # define LIGHT_KAKI 0xA9C994
+
 //keyboard
 # define ESC 65307
 # define SPACE 32
